@@ -1,5 +1,7 @@
 {
   "name": "powApp",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "ionic-angular"
 }
