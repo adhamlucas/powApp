@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { PowPage } from '../pow/pow';
 
 /**
  * Generated class for the BotaoPowPage page.
@@ -18,8 +19,8 @@ export class BotaoPowPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad BotaoPowPage');
+  pow(){
+    this.navCtrl.push(PowPage);
   }
 
 }

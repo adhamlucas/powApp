@@ -29,12 +29,13 @@ export class HomePage {
   async login(user: User) {
     try{
       const resultado = this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password);
-      console.log(resultado);
+      
+      alert(resultado);
       this.showAlert("Login", "Login Realizado com Sucesso", "ok");
-      this.navCtrl.push("PowPage");
+      this.navCtrl.push("BotaoPowPage");
     }
     catch(e){
-      console.log(e);
+      alert(e);
       this.showAlert("Login", e, "Ok");
     }
   }

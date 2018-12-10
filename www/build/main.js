@@ -1,4 +1,4 @@
-webpackJsonp([2],{
+webpackJsonp([3],{
 
 /***/ 160:
 /***/ (function(module, exports) {
@@ -21,13 +21,17 @@ webpackEmptyAsyncContext.id = 160;
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
-	"../pages/cadastro/cadastro.module": [
+	"../pages/botao-pow/botao-pow.module": [
 		692,
-		1
+		0
+	],
+	"../pages/cadastro/cadastro.module": [
+		693,
+		2
 	],
 	"../pages/pow/pow.module": [
-		693,
-		0
+		694,
+		1
 	]
 };
 function webpackAsyncContext(req) {
@@ -124,12 +128,12 @@ var HomePage = /** @class */ (function () {
             return __generator(this, function (_a) {
                 try {
                     resultado = this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password);
-                    console.log(resultado);
+                    alert(resultado);
                     this.showAlert("Login", "Login Realizado com Sucesso", "ok");
-                    this.navCtrl.push("PowPage");
+                    this.navCtrl.push("BotaoPowPage");
                 }
                 catch (e) {
-                    console.log(e);
+                    alert(e);
                     this.showAlert("Login", e, "Ok");
                 }
                 return [2 /*return*/];
@@ -178,7 +182,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(84);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(343);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__ = __webpack_require__(344);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_fire__ = __webpack_require__(301);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_fire__ = __webpack_require__(302);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_fire_auth__ = __webpack_require__(149);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_component__ = __webpack_require__(687);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_home_home__ = __webpack_require__(345);
@@ -220,6 +224,7 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* MyApp */], {}, {
                     links: [
+                        { loadChildren: '../pages/botao-pow/botao-pow.module#BotaoPowPageModule', name: 'BotaoPowPage', segment: 'botao-pow', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/cadastro/cadastro.module#CadastroPageModule', name: 'CadastroPage', segment: 'cadastro', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/pow/pow.module#PowPageModule', name: 'PowPage', segment: 'pow', priority: 'low', defaultHistory: [] }
                     ]
