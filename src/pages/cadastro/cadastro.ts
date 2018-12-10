@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { User } from '../../models/user';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { ThrowStmt } from '@angular/compiler';
+// import { ThrowStmt } from '@angular/compiler';
 /**
  * Generated class for the CadastroPage page.
  *

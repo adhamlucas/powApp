@@ -35,7 +35,7 @@ export class HomePage {
     }
     catch(e){
       console.log(e);
-      this.showAlert("Login", "Erro ao relizar login", "Ok");
+      this.showAlert("Login", e, "Ok");
     }
   }
 
