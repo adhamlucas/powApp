@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
-import { UserProvider, User} from '../../providers/user/user';
-
+import { User } from '../../models/user';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { ThrowStmt } from '@angular/compiler';
 /**
  * Generated class for the CadastroPage page.
  *
@@ -15,17 +16,17 @@ import { UserProvider, User} from '../../providers/user/user';
   templateUrl: 'cadastro.html',
 })
 export class CadastroPage {
-  model: User;
+  user = {} as User;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,
-    private userProvider: UserProvider, public alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController,
+     private afAuth: AngularFireAuth) {
     
-    if(this.navParams.data.user){
-      this.model = this.navParams.data.user;
-    }
-    else{
-      this.model = new User();
-    }
+    // if(this.navParams.data.user){
+    //   this.user = this.navParams.data.user;
+    // }
+    // else{
+    //   this.user = new User();
+    // }
   }
 
   showAlert(title: string, subTitle: string, bottons: string) {
@@ -37,24 +38,37 @@ export class CadastroPage {
     alert.present();
   }
 
-  save() {
-    this.userProvider.get(this.model.userName) 
-      .then((value) => {
-        if(value != null){
-          this.showAlert("Error", "Usuário já existe, tente outro!", "ok");
-        }
-        else{
-          this.userProvider.insert(this.model)
-            .then(() =>{
-              this.showAlert("Cadastro", "Cadastro realizado com sucesso!", "ok");
-              this.navCtrl.pop();
-            })
-            .catch(() => {
-              this.showAlert("Cadastro", "Erro ao realizar Cadastro", "ok");
-              this.navCtrl.pop();
-            });  
-        }
-      });  
+  // save() {
+  //   this.userProvider.get(this.user.userName) 
+  //     .then((value) => {
+  //       if(value != null){
+  //         this.showAlert("Error", "Usuário já existe, tente outro!", "ok");
+  //       }
+  //       else{
+  //         this.userProvider.insert(this.user)
+  //           .then(() =>{
+  //             this.showAlert("Cadastro", "Cadastro realizado com sucesso!", "ok");
+  //             this.navCtrl.pop();
+  //           })
+  //           .catch(() => {
+  //             this.showAlert("Cadastro", "Erro ao realizar Cadastro", "ok");
+  //             this.navCtrl.pop();
+  //           });  
+  //       }
+  //     });  
+  // }
+
+  async cadastrar(user: User) {
+    try {
+      const resultado = await this.afAuth.auth.createUserWithEmailAndPassword(user.email, user.password);
+      console.log(resultado);
+      this.showAlert("Cadastro","realizado com sucesso", "ok");
+      this.navCtrl.pop();
+    }
+    catch(e){
+      this.showAlert("Cadastro","Error ao cadastrar usuário", "ok");
+      console.error(e);
+    }
   }
 
   ionViewDidLoad() {

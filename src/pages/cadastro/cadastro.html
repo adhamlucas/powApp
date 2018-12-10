@@ -16,13 +16,13 @@
 <ion-content padding>
   <ion-item>
     <ion-label floating>Username</ion-label>
-    <ion-input type="text" name="userName" [(ngModel)]="model.userName"></ion-input>
+    <ion-input type="text" name="email" [(ngModel)]="user.email"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label floating>Password</ion-label>
-    <ion-input type="password" name="password" [(ngModel)]="model.password"></ion-input>
+    <ion-input type="password" [(ngModel)]="user.password"></ion-input>
   </ion-item>
 
-  <button ion-button block (click)="save()">Cadastrar</button>
+  <button ion-button block (click)="cadastrar(user)">Cadastrar</button>
 </ion-content>

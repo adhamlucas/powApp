@@ -32,7 +32,7 @@ export class PowPage {
           center: position
         }
 
-        this.map = new google.maps.Map(document.getElementById('map'), mapOptions);
+        this.map = new google.mapuserProviders.Map(document.getElementById('map'), mapOptions);
 
         const marker = new google.maps.Marker({
           position: position,
