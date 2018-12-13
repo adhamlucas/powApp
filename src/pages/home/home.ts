@@ -26,18 +26,24 @@ export class HomePage {
     alert.present();
   }
 
-  async login(user: User) {
-    try{
-      const resultado = this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password);
+  public login(user: User) {
+    
+      this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password)
+        .then(() => {
+          this.showAlert("Login", "Login Realizado com Sucesso", "ok");
+          this.navCtrl.push("BotaoPowPage");
+        })
+        .catch((erro: any) => {
+          this.showAlert("Login", erro, "Ok");
+        })
       
-      alert(resultado);
-      this.showAlert("Login", "Login Realizado com Sucesso", "ok");
-      this.navCtrl.push("BotaoPowPage");
-    }
-    catch(e){
-      alert(e);
-      this.showAlert("Login", e, "Ok");
-    }
+      
+      
+    
+    // catch(e){
+    //   alert(e);
+      
+    // }
   }
 
   goCadastro(){

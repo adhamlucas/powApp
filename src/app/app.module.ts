@@ -8,6 +8,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { PowPage } from '../pages/pow/pow'
 
 import { Geolocation } from '@ionic-native/geolocation';
 
@@ -19,7 +20,8 @@ import { FIREBASE_CONFIG } from './app.firebase.config';
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    PowPage,
   ],
   imports: [
     BrowserModule,
@@ -31,7 +33,8 @@ import { FIREBASE_CONFIG } from './app.firebase.config';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    PowPage,
   ],
   providers: [
     StatusBar,
